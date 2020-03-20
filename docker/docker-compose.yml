@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  postgres:
+    image: postgres:12.1
+    container_name: "twitter-indexer-postgres"
+    environment:
+      POSTGRES_USER: twitter-indexer
+      POSTGRES_PASSWORD: twitter-indexer
+      POSTGRES_DB: twitter-indexer
+    ports:
+      - "5433:5432"
+
+  graphite-grafana:
+    image: kamon/grafana_graphite:3.0
+    container_name: graphite
+    ports:
+      - "81:80"
+      - "2003:2003"
