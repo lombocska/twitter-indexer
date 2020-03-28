@@ -5,15 +5,7 @@ spring:
 
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
-    consumer:
-      group-id: ${spring.application.name}-${random.int}
-      client-id: ${spring.application.name}-${random.int}
-      auto-offset-reset: earliest
-      enable-auto-commit: false
-#      properties:
-#        isolation.level: read_committed
-#    listener:
-#      ack-mode: record
+
   elasticsearch:
     rest:
       uris: ${TWITTER_ELASTICSEARCH_HOSTS:localhost:9200}

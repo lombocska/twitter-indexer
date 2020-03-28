@@ -3,10 +3,14 @@ package io.lombocska.twitterindexer.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.HashMap;
 import java.util.Map;
 
+@ToString
+@Getter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Tweet {
 

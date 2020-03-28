@@ -28,10 +28,17 @@ public class KafkaDispatcher {
 
     @LogExceptionMetric
     public void send(final Tweet tweet) {
-        final String serializedTweet = serialize(tweet);
-        this.kafkaTemplate.send(twitterTopic, serializedTweet);
-        log.debug("Tweet has sent: {} to the topic: {}", serializedTweet, twitterTopic);
-        metricService.countSentTwitterMessage();
+        try {
+            final String messageKey = tweet.getId().toString();
+            final String serializedTweet = serialize(tweet);
+            this.kafkaTemplate.send(twitterTopic, messageKey,  serializedTweet);
+            log.debug("Tweet has sent: {} to the topic: {}", serializedTweet, twitterTopic);
+            metricService.countSentTwitterMessage();
+        } catch (NullPointerException npe) {
+            log.warn("Skipping tweet since missing tweet id. Tweet: {}", tweet);
+            this.metricService.countException(npe.getClass().getSimpleName());
+        }
+
     }
 
     private String serialize(final Tweet tweet) {

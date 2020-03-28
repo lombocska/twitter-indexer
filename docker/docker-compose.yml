@@ -30,8 +30,7 @@ services:
     container_name: kafka
     environment:
       KAFKA_MESSAGE_MAX_BYTES: 32768
-      # 2 partition - 2 replicas
-      KAFKA_CREATE_TOPICS: "twitter-domain-event:2:2"
+      KAFKA_CREATE_TOPICS: "twitter-domain-event"
       KAFKA_ADVERTISED_LISTENERS: "PLAINTEXT://kafka:9092"
       KAFKA_LISTENERS: "PLAINTEXT://0.0.0.0:9092"
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
