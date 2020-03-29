@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+
+  #  twitter-indexer app
+  twitter-indexer:
+    container_name: twitter-indexer
+    build: ./../.
+    networks:
+      - twitter-network
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      TWITTER_INDEXER_CONSUMER_KEY: 211FsQWhqOEIXYUFQgZtsUvHW
+      TWITTER_INDEXER_CONSUMER_SECRET: MjEOgOwhI5AJVzopY3QiMoquKBwYSHd9C1AXy8ZIYYLsJJkBNF
+      TWITTER_INDEXER_TOKEN: 1052440725437050880-DnN6ZuddsjllneHPsSahHuZZvKHLLY
+      TWITTER_INDEXER_SECRET: 0xZobz0dKUysZiFjhqzDc2fjSP0jPteNzBzS8WlWXLif4
+      TWITTER_INDEXER_JOB_ENABLED: "true"
+      TWITTER_INDEXER_CAPACITY:  10
+      DB_HOST: twitter-indexer-postgres
+      DB_PORT: 5433
+      DB_NAME: twitter-indexer
+      DB_USERNAME: twitter-indexer
+      DB_PASSWORD: twitter-indexer
+      GRAPHITE_HOST: graphite
+      GRAPHITE_PORT: 2003
+      SERVER_PORT: 8080
+    ports: [8081:8080]
+
+networks:
+  twitter-network:
+    driver: bridge

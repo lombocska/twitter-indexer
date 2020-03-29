@@ -32,3 +32,10 @@ example about them. That means that you need a Twitter developer account with a 
 - Spring Kafka
 - Docker
 - Maven
+
+## Inspirations
+
+- [ElasticSearch doc](https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#docker-prod-cluster-composefile)
+- [Spring Kafka batch listener config](https://docs.spring.io/autorepo/docs/spring-kafka-dist/1.1.1.BUILD-SNAPSHOT/reference/htmlsingle/#_batch_listeners)
+- [Multi-stage Dockerfile](https://spring.io/blog/2020/01/27/creating-docker-images-with-spring-boot-2-3-0-m1)
+- [Multi-stage Dockerfile with Spring-boot](https://medium.com/@tariqul.islam.rony/spring-boot-and-multi-stage-dockerized-image-with-mysql-in-docker-compose-part-3-2999b2bdf6aa)

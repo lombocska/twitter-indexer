@@ -3,13 +3,17 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>twitter-indexer</artifactId>
         <groupId>io.lombocska</groupId>
+        <artifactId>twitter-indexer</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
+    <groupId>io.lombocska</groupId>
     <artifactId>twitter-indexer-producer</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
     <properties>
         <hbc-core.version>2.2.0</hbc-core.version>
@@ -56,4 +60,8 @@
             <artifactId>liquibase-core</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <finalName>twitter-indexer-producer</finalName>
+    </build>
 </project>
