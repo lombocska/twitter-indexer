@@ -6,12 +6,10 @@ services:
     networks:
       - docker_twitter-network
     build: ./../.
+    env_file:
+      - .env
     environment:
       KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      TWITTER_INDEXER_CONSUMER_KEY:
-      TWITTER_INDEXER_CONSUMER_SECRET:
-      TWITTER_INDEXER_TOKEN:
-      TWITTER_INDEXER_SECRET:
       TWITTER_INDEXER_JOB_ENABLED: "true"
       TWITTER_INDEXER_CAPACITY:  10
       DB_HOST: twitter-indexer-postgres
