@@ -5,9 +5,9 @@ services:
 # postgres db for shedlock
   postgres:
     image: postgres:12.1
+    container_name: "twitter-indexer-postgres"
     networks:
       - twitter-network
-    container_name: "twitter-indexer-postgres"
     environment:
       POSTGRES_USER: twitter-indexer
       POSTGRES_PASSWORD: twitter-indexer
@@ -17,26 +17,26 @@ services:
 # graphite-grafana for metrics
   graphite-grafana:
     image: kamon/grafana_graphite:3.0
+    container_name: graphite
     networks:
       - twitter-network
-    container_name: graphite
     ports:
       - "81:80"
       - "2003:2003"
 # kafka
   zookeeper:
     image: wurstmeister/zookeeper
+    container_name: zookeeper
     networks:
       - twitter-network
-    container_name: zookeeper
     ports:
       - "2181:2181"
 
   kafka:
     image: wurstmeister/kafka:latest
+    container_name: kafka
     networks:
       - twitter-network
-    container_name: kafka
     environment:
       KAFKA_MESSAGE_MAX_BYTES: 32768
       KAFKA_CREATE_TOPICS: "twitter-domain-event"
@@ -45,6 +45,34 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     ports:
       - "9092:9092"
+
+  twitter-indexer:
+    container_name: twitter-indexer
+    networks:
+      - twitter-network
+    build: ./../.
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      TWITTER_INDEXER_CONSUMER_KEY:
+      TWITTER_INDEXER_CONSUMER_SECRET:
+      TWITTER_INDEXER_TOKEN:
+      TWITTER_INDEXER_SECRET:
+      TWITTER_INDEXER_JOB_ENABLED: "true"
+      TWITTER_INDEXER_CAPACITY:  10
+      DB_HOST: twitter-indexer-postgres
+      DB_PORT: 5433
+      DB_NAME: twitter-indexer
+      DB_USERNAME: twitter-indexer
+      DB_PASSWORD: twitter-indexer
+      GRAPHITE_HOST: graphite
+      GRAPHITE_PORT: 2003
+      SERVER_PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    links:
+       - postgres
 
 networks:
   twitter-network:
