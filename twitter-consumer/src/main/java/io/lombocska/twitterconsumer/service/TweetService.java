@@ -1,4 +1,4 @@
-package io.twitterconsumer.service;
+package io.lombocska.twitterconsumer.service;
 
 import java.util.List;
 

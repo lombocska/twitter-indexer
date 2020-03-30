@@ -1,4 +1,4 @@
-package io.twitterconsumer;
+package io.lombocska.twitterconsumer;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

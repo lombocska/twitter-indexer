@@ -1,4 +1,4 @@
-package io.twitterconsumer.config;
+package io.lombocska.twitterconsumer.config;
 
 import org.apache.kafka.clients.admin.AdminClient;
 import org.apache.kafka.clients.admin.DescribeClusterOptions;

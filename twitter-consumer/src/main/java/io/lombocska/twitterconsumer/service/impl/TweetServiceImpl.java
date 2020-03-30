@@ -1,8 +1,8 @@
-package io.twitterconsumer.service.impl;
+package io.lombocska.twitterconsumer.service.impl;
 
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
-import io.twitterconsumer.service.TweetService;
+import io.lombocska.twitterconsumer.service.TweetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.bulk.BulkRequest;

@@ -1,6 +1,6 @@
-package io.twitterconsumer.consumer;
+package io.lombocska.twitterconsumer.consumer;
 
-import io.twitterconsumer.service.TweetService;
+import io.lombocska.twitterconsumer.service.TweetService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;

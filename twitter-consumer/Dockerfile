@@ -10,4 +10,4 @@ COPY ${DEPENDENCY}/BOOT-INF/classes /app
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-XX:+UseContainerSupport","-XX:MaxRAMFraction=1","-XshowSettings:vm","-cp","app:app/lib/*","io.twitterconsumer.TwitterConsumerApplication"]
+ENTRYPOINT ["java", "-XX:+UseContainerSupport","-XX:MaxRAMFraction=1","-XshowSettings:vm","-cp","app:app/lib/*","io.lombocska.twitterconsumer.TwitterConsumerApplication"]

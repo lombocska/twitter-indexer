@@ -6,18 +6,26 @@
 This project is a POC for playing with Spring Kafka, ElasticSearch, and Twitter API.
 
 
-## Usage
+## Usage via docker
 
+### Twitter-indexer
 
+- `cd twitter-indexer-producer`
+- `./mvnw clean install`
 - `docker-compose -f docker/docker-compose.yml up --build`
-- `zookeeper-server-start config/zookeeper.properties`
-- `kafka-server-start config/server.properties`
-- //FIXME: dockerize app itself 
+- create & fill out the `docker/.env` file with the missing secrets based on the env-vars.tpl template file
+- `docker-compose -f docker/twitter-indexer-compose.yml up --build`
 
+### Twitter-consumer
+
+- `cd twitter-consumer`
+- `./mvnw clean install`
+- `docker-compose -f docker/docker-compose.yml up --build`
+- `docker-compose -f docker/twitter-consumer-compose.yml up --build`
 
 
 ```
-Note: environment variables are required to fire the service up! env-vars.tpl file contains all of them to show an
+Note: twitter api secrets are required to fire the service up! env-vars.tpl file contains all of them to show an
 example about them. That means that you need a Twitter developer account with a Twitter App.
 ```
 

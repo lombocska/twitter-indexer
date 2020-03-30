@@ -1,4 +1,4 @@
-package io.twitterconsumer.config;
+package io.lombocska.twitterconsumer.config;
 
 import io.micrometer.core.instrument.Clock;
 import io.micrometer.core.instrument.config.NamingConvention;
