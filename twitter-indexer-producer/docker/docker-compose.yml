@@ -46,34 +46,6 @@ services:
     ports:
       - "9092:9092"
 
-  twitter-indexer:
-    container_name: twitter-indexer
-    networks:
-      - twitter-network
-    build: ./../.
-    environment:
-      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      TWITTER_INDEXER_CONSUMER_KEY:
-      TWITTER_INDEXER_CONSUMER_SECRET:
-      TWITTER_INDEXER_TOKEN:
-      TWITTER_INDEXER_SECRET:
-      TWITTER_INDEXER_JOB_ENABLED: "true"
-      TWITTER_INDEXER_CAPACITY:  10
-      DB_HOST: twitter-indexer-postgres
-      DB_PORT: 5433
-      DB_NAME: twitter-indexer
-      DB_USERNAME: twitter-indexer
-      DB_PASSWORD: twitter-indexer
-      GRAPHITE_HOST: graphite
-      GRAPHITE_PORT: 2003
-      SERVER_PORT: 8080
-    ports:
-      - "8080:8080"
-    depends_on:
-      - postgres
-    links:
-       - postgres
-
 networks:
   twitter-network:
     driver: bridge
