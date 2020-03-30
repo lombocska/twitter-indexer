@@ -4,6 +4,7 @@
 
 
 This project is a POC for playing with Spring Kafka, ElasticSearch, and Twitter API.
+Docker is multi-stage with the layered spring boot jar.
 
 
 ## Usage via docker
