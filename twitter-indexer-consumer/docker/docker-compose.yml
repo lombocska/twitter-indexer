@@ -6,6 +6,8 @@ services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
     container_name: es01
+    networks:
+      - docker_twitter-network
     environment:
       - node.name=es01
       - cluster.name=es-docker-cluster
@@ -19,12 +21,12 @@ services:
         hard: -1
     ports:
       - 9200:9200
-    networks:
-      - elastic
 
   es02:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
     container_name: es02
+    networks:
+      - docker_twitter-network
     environment:
       - node.name=es02
       - cluster.name=es-docker-cluster
@@ -36,11 +38,12 @@ services:
       memlock:
         soft: -1
         hard: -1
-    networks:
-      - elastic
+
   es03:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.6.1
     container_name: es03
+    networks:
+      - docker_twitter-network
     environment:
       - node.name=es03
       - cluster.name=es-docker-cluster
@@ -52,9 +55,8 @@ services:
       memlock:
         soft: -1
         hard: -1
-    networks:
-      - elastic
+
 
 networks:
-  elastic:
-    driver: bridge
+  docker_twitter-network:
+    external: true

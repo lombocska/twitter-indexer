@@ -23,7 +23,7 @@ management:
     step: 10s
 
 server:
-  port: ${SERVER_PORT:8081}
+  port: ${SERVER_PORT:8080}
 
 logging:
   level:
