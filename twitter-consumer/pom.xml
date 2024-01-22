@@ -13,7 +13,7 @@
 
     <properties>
         <elasticsearch-rest-high-level-client.version>6.8.1</elasticsearch-rest-high-level-client.version>
-        <json-path.version>2.4.0</json-path.version>
+        <json-path.version>2.9.0</json-path.version>
     </properties>
 
     <dependencies>
